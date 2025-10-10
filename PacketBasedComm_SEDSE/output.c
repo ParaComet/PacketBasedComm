@@ -1,0 +1,39 @@
+#include "PBCSConfig.h"
+
+static const PBCS_U1 data_belonging[] = {
+    0x00, 0x00,
+    0x01, 0x01,
+    0x02, 0x02,
+    0x03, 0x03,
+    0x04, 0x02
+};
+
+static const PBCS_U1 data_packetNums[] = {
+    0x01, 0x01,
+    0x04, 0x01
+};
+
+static const PBCS_U1 data_packets[] = {
+    0x04, 0x00, 0x06, 0x00, 0x00, 0x00,
+    0x01, 0x00, 0x04, 0x00, 0x00
+};
+
+static const PBCS_U1 data_packetsIndexes[] = {
+    0x01, 0x00, 0x06,
+    0x04, 0x00, 0x00
+};
+
+const struct PBCS_config Aconfig = {
+    data_belonging,
+    data_packetNums,
+    data_packets,
+    data_packetsIndexes,
+    5,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+};

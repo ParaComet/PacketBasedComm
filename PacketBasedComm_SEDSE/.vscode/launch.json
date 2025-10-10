@@ -1,0 +1,27 @@
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C++ Launch (GDB/LLDB)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\test.exe", // 确保这是你的可执行文件路径
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb", // 或 "lldb"，取决于你安装的调试器类型
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build and debug session", // 需要一个预启动任务来编译你的代码，如果没有，你可以创建一个task.json文件来处理编译任务。
+            "miDebuggerPath": "E:/mingw/bin/gdb.exe" // 如果GDB不在你的PATH中，需要指定完整路径
+        }
+    ]
+}

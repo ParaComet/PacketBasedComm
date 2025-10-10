@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pkttype name="all" id="0">
+    <!-- <nonTMod /> -->
+    <packet name="packet1" id="0">
+        <data type="0x00" name="dt1" />
+        <data type="0x04" name="dt2" />
+    </packet>
+    <packet name="packet2" id="1">
+        <data type="0x07" name="dt1" />
+    </packet>
+    <packet name="packet3" id="2">
+        <data type="0x06" name="dt1" />
+    </packet>
+    <pkttype name="service1" id="1">
+        <pkttype name="subService1" id="2"></pkttype>
+        <pkttype name="subService2" id="3">
+            <packet name="packet4" id="0">
+                <data type="0x00" name="dt1" />
+                <data type="0x01" name="dt2" />
+                <data type="0x02" name="dt3" />
+                <data type="0x08" name="dt4" />
+                <data type="0x07" name="dt5" />
+            </packet>
+            <packet name="move" id="1">
+                <data type="0x0A" name="x" />
+                <data type="0x0A" name="y" />
+                <data type="0x08" name="uuid" />
+            </packet>
+        </pkttype>
+    </pkttype>
+    <pkttype name="service2" id="4"></pkttype>
+</pkttype>
+<pkttype name="id5" id="5"></pkttype>

@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "pbcsconfig.h": "c",
+        "binarysearch.h": "c",
+        "pbcscallbacks.h": "c",
+        "pbcsdse.h": "c",
+        "stdlib.h": "c",
+        "stdio.h": "c"
+    }
+}
