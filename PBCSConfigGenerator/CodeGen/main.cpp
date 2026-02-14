@@ -2,6 +2,7 @@
 // Created by QingG on 2025/9/27.
 //
 
+#include "Typedef.h"
 #include <iostream>
 #include <QCoreApplication>
 #include <QFile>
@@ -12,6 +13,9 @@
 #include <configElem/Data.h>
 #include <FileOperation.h>
 #include <map>
+#include <qchar.h>
+#include <qdebug.h>
+#include <qlocale.h>
 
 using namespace PBCS;
 
@@ -19,50 +23,81 @@ std::string TAB = "    ";
 
 void outputStart(const std::string& onceDefine,QTextStream& stream) {
     if (onceDefine == "*once") {
-        stream << "#pragma once" << endl;
+        stream << "#pragma once" << Qt::endl;
     }else {
-        stream << "#ifndef " << onceDefine.c_str() << endl;
-        stream << "#define " << onceDefine.c_str() << endl;
+        stream << "#ifndef " << onceDefine.c_str() << Qt::endl;
+        stream << "#define " << onceDefine.c_str() << Qt::endl;
     }
-    stream << endl;
-    stream << "#include \"PBCSConfig.h\"" << endl << endl;
+    stream << Qt::endl;
+    stream << "#include \"PBCSConfig.h\"" << Qt::endl << Qt::endl;
 }
 
 void outputEnd(const std::string& onceDefine,QTextStream& stream) {
     if (onceDefine != "*once") {
-        stream << "#endif" << endl;
+        stream << "#endif" << Qt::endl;
     }
 }
 
-void outputDefine(Config::Iterator& iterator,bool upperCase,const QString& prefix,QTextStream& stream,const QString& parentsName) {
+void outputPacketData(
+    PBCS_DTID dtid,
+    Data * data,
+    const QString& pkttypeName,
+    const QString& pktNameCstr,
+    bool upperCase,
+    const QString& prefix,
+    QTextStream& stream) {
+    QString dtNameCstr;
+    if (!upperCase)
+        dtNameCstr = data->getName().c_str();
+    else
+        dtNameCstr = QString::fromStdString(data->getName()).toUpper();
+    stream << "#define " << prefix << "DTID"
+           << pkttypeName << "_" << pktNameCstr << "_" << dtNameCstr
+           << " " << dtid << Qt::endl;
+}
+
+void outputPacketDefine(
+    Packet* packet,
+    const QString& pkttypeName,
+    bool upperCase,
+    const QString& prefix,
+    QTextStream& stream) {
+    QString pktNameCstr;
+    if (!upperCase) 
+        pktNameCstr = packet->getName().c_str();
+    else
+        pktNameCstr = QString::fromStdString(packet->getName()).toUpper();
+    stream << "#define " << prefix << "PID" << pkttypeName << "_" << pktNameCstr
+           << " " << packet->getID() << Qt::endl;
+
+    packet->iterate([&](PBCS_DTID dtid, Data* data) {
+        outputPacketData(dtid, data, pkttypeName, pkttypeName, upperCase, prefix, stream);
+    });
+
+    stream << Qt::endl;
+}
+
+void outputDefine(
+    Config::Iterator& iterator, 
+    bool upperCase,
+    const QString& prefix, 
+    QTextStream& stream,
+    const QString& parentsName) {
+        
     for (PacketType* nowType = iterator.now();nowType != nullptr;nowType = iterator.now()) {
         QString pkttypeName = parentsName;
         pkttypeName.append("_");
-        if (!upperCase) pkttypeName.append(nowType->getName().c_str());
-        else pkttypeName.append(QString::fromStdString(nowType->getName()).toUpper());
-        stream << "#define " << prefix << "PTID" << pkttypeName << " " << nowType->getID() << endl;
-        nowType->iterate([&stream,pkttypeName,upperCase,prefix](Packet* packet) {
-            QString pktNameCStr;
-            if (!upperCase) pktNameCStr = packet->getName().c_str();
-            else pktNameCStr = QString::fromStdString(packet->getName()).toUpper();
-            stream << "#define " << prefix << "PID" << pkttypeName << "_" << pktNameCStr << " " << packet->getID() << endl;
-            packet->iterate([&stream,&pktNameCStr,pkttypeName,upperCase,prefix](PBCS_DTID dtid,Data* data) {
-                const char* dtNameCStr;
-                if (!upperCase) dtNameCStr = data->getName().c_str();
-                else dtNameCStr = QString::fromStdString(data->getName()).toUpper().toStdString().c_str();
-                stream << "#define " << prefix << "DTID"
-                << pkttypeName
-                << "_"
-                << pktNameCStr
-                << "_"
-                << dtNameCStr
-                << " "
-                << dtid
-                << endl;
-            });
-            stream << endl;
+        if (!upperCase) 
+            pkttypeName.append(nowType->getName().c_str());
+        else 
+            pkttypeName.append(QString::fromStdString(nowType->getName()).toUpper());
+        
+        stream << "#define " << prefix << "PTID" << pkttypeName << " " << nowType->getID() << Qt::endl;
+        nowType->iterate([&](Packet* packet) {
+            outputPacketDefine(packet, pkttypeName, upperCase, prefix, stream);
         });
-        stream << endl;
+
+        stream << Qt::endl;
         iterator.nextLayer();
         outputDefine(iterator,upperCase,prefix,stream,pkttypeName);
         iterator.prevLayer();
@@ -80,12 +115,12 @@ void outputDefine(
     ) {
 
     if (config->isNonTMod()) {
-        stream << "#define " << prefix << "PTID_DEFAULT 0" << endl << endl;
-        config->iterator().now()->iterate([&stream,upperCase,prefix](Packet* packet) {
+        stream << "#define " << prefix << "PTID_DEFAULT 0" << Qt::endl << Qt::endl;
+        Config::Iterator(config).now()->iterate([&stream,upperCase,prefix](Packet* packet) {
             QString pktNameCStr;
             if (!upperCase) pktNameCStr = packet->getName().c_str();
             else pktNameCStr = QString::fromStdString(packet->getName()).toUpper();
-            stream << "#define " << prefix << "PID_" << pktNameCStr << " " << packet->getID() << endl;
+            stream << "#define " << prefix << "PID_" << pktNameCStr << " " << packet->getID() << Qt::endl;
             packet->iterate([&stream,&pktNameCStr,upperCase,prefix](PBCS_DTID dtid,Data* data) {
                 const char* dtNameCStr;
                 if (!upperCase) dtNameCStr = data->getName().c_str();
@@ -96,27 +131,29 @@ void outputDefine(
                 << dtNameCStr
                 << " "
                 << dtid
-                << endl;
+                << Qt::endl;
             });
-            stream << endl;
+            stream << Qt::endl;
         });
     }else {
-        Config::Iterator iterator = config->iterator();
+        Config::Iterator iterator = Config::Iterator(config);
         outputDefine(iterator,upperCase,prefix,stream,QString(""));
     }
 
     if (namespaceName.empty()) {
-        stream << "extern const struct PBCS_config " << varName.c_str() << ";" << endl;
+        stream << "extern const struct PBCS_config " << varName.c_str() << ";" << Qt::endl;
     }else {
-        stream << "namespace " << namespaceName.c_str() << " {" << endl;
+        stream << "namespace " << namespaceName.c_str() << " {" << Qt::endl;
         stream << TAB.c_str();
-        stream << "extern const struct PBCS_config " << varName.c_str() << ";" << endl;
-        stream << "}" << endl;
+        stream << "extern const struct PBCS_config " << varName.c_str() << ";" << Qt::endl;
+        stream << "}" << Qt::endl;
     }
-    stream << endl;
+    stream << Qt::endl;
 
 }
 
+// 包排序比较器：先按PacketType ID排序，再按Packet ID排序
+// 用于确保生成的配置数据顺序一致
 bool compPacket(const Packet* packet1,const Packet* packet2) {
     //return packet1 < packet2
     PBCS_PTID ptid1 = packet1->getBelongsToConst()->getID(),ptid2 = packet2->getBelongsToConst()->getID();
@@ -126,13 +163,24 @@ bool compPacket(const Packet* packet1,const Packet* packet2) {
     return ptid1 < ptid2;
 }
 
+// 检查一个值是否能用指定字节数存储
+// 例如：satisfy(300, 1) = false (300超出了1字节能存储的范围0-255)
+//       satisfy(255, 1) = false (边界值也不满足，需要 < 255)
 bool satisfy(unsigned long long val,int bytes) {
     return val < ((1 << (bytes * 8)) - 1);
 }
 
+/** 
+* 递归遍历配置树，计算动态的字节长度
+* @param ptidLen: 
+* @param pidLen: Packet ID需要的字节数
+* @param dtidLen: Data ID需要的字节数
+* @param parents: 记录每个包类型的父类
+* @param packetNums: 记录每个包类型包含的包数量 
+*/
 void infoIterate(
     Config::Iterator& iterator,
-    int& ptidLen,
+    int& ptidLen,      // 动态计算所需字节数
     int& pidLen,
     int& dtidLen,
     PBCS_PID& totalPkt,
@@ -140,105 +188,147 @@ void infoIterate(
     std::map<PBCS_PTID,PBCS_PID>& packetNums
     ) {
     for (PacketType* nowType = iterator.now();nowType != nullptr;nowType = iterator.now()) {
-        totalPkt += nowType->getPacketNum();
+        totalPkt += nowType->getPacketNum();  // 累计包数量
+        
+        // 记录父子关系
         parents.insert(std::pair<PBCS_PTID,PBCS_PTID>(nowType->getID(),nowType->getParent()->getID()));
+        
         if (nowType->getPacketNum() > 0) {
+            // 记录各包类型的包数量
             packetNums.insert(std::pair<PBCS_PTID,PBCS_PID>(nowType->getID(),nowType->getPacketNum()));
         }
+        
+        // 动态调整ptidLen：确保能存储该包类型的ID
         while (!satisfy(nowType->getID(),ptidLen)) ptidLen++;
+        
+        // 遍历该包类型下的所有包
         nowType->iterate([&](Packet* packet) {
-            while (!satisfy(packet->getID(),pidLen)) pidLen++;
-            while (!satisfy(packet->getDataNum(),dtidLen)) dtidLen++;
+            while (!satisfy(packet->getID(),pidLen)) pidLen++;                    // 调整pidLen
+            while (!satisfy(packet->getDataNum(),dtidLen)) dtidLen++;            // 调整dtidLen
         });
+        
+        // 递归遍历子层级
         iterator.nextLayer();
         infoIterate(iterator,ptidLen,pidLen,dtidLen,totalPkt,parents,packetNums);
         iterator.prevLayer();
-        iterator.step();
+        iterator.step();  // 移到下一个同级类型
     }
 }
 
+// 将整数以小端序写入字节流（多字节）
+// 例如：val=0x12345678, bytes=4 -> 输出 "0x78, 0x56, 0x34, 0x12"
 void bytesWriteToStream(unsigned long long val,int bytes,QTextStream& stream) {
     char buffer[5];
     for (int i = 0;i < bytes;i++) {
         if (i != 0) stream << ", ";
-        unsigned char byte = val & 0xFF;
+        unsigned char byte = val & 0xFF;              // 取最低8位
         snprintf(buffer, sizeof(buffer), "0x%02X", byte);
         stream << buffer;
-        val >>= 8;
+        val >>= 8;                                    // 右移8位，取下一字节
     }
 }
 
+// 将数据类型编码为4位值（用于位打包）
+// 两个类型可以打包到一个字节：低4位一个，高4位一个
 unsigned char getTypeMarkByte(DataType type) {
     switch (type) {
         default:
-        case DataType::UINT8: return 0;
-        case DataType::UINT16: return 1;
-        case DataType::UINT32: return 2;
-        case DataType::INT8: return 3;
-        case DataType::INT16: return 4;
-        case DataType::INT32: return 5;
-        case DataType::FLOAT32: return 6;
-        case DataType::VARIABLE: return 7;
-        case DataType::UINT64: return 8;
-        case DataType::INT64: return 9;
-        case DataType::FLOAT64: return 10;
+        case DataType::UINT8:     return 0;   // 00: 无符号8位
+        case DataType::UINT16:    return 1;   // 01: 无符号16位
+        case DataType::UINT32:    return 2;   // 02: 无符号32位
+        case DataType::INT8:      return 3;   // 03: 有符号8位
+        case DataType::INT16:     return 4;   // 04: 有符号16位
+        case DataType::INT32:     return 5;   // 05: 有符号32位
+        case DataType::FLOAT32:   return 6;   // 06: 浮点32位
+        case DataType::VARIABLE:  return 7;   // 07: 可变长
+        case DataType::UINT64:    return 8;   // 08: 无符号64位
+        case DataType::INT64:     return 9;   // 09: 有符号64位
+        case DataType::FLOAT64:   return 10;  // 0A: 浮点64位
     }
 }
 
+// 递归写入包配置数据到字节数组
+// 格式: [PacketTypeID], PacketID, DataNum, [DataType编码...]
+// [...]表示仅在非NonTMod模式下输出
 void writePackets(
     Config::Iterator& iterator,
     QTextStream& stream,
-    int ptidLen,
-    int pidLen,
-    int dtidLen,
-    int& cfgIndexLen,
-    bool& first,
-    size_t& cfgIndex,
-    std::map<Packet*,size_t,decltype(&compPacket)>& packetIndexes
+    int ptidLen,                                           // PacketType ID占用字节数
+    int pidLen,                                            // Packet ID占用字节数
+    int dtidLen,                                           // Data数量占用字节数
+    int& cfgIndexLen,                                      // 配置数据索引占用字节数（会动态调整）
+    bool& first,                                           // 是否第一个元素
+    size_t& cfgIndex,                                      // 当前配置数据偏移
+    std::map<Packet*,size_t,decltype(&compPacket)>& packetIndexes  // 记录每个包的配置起始位置
     ) {
     for (PacketType* nowType = iterator.now();nowType != nullptr;nowType = iterator.now()) {
+        // 遍历该类型下的所有包
         nowType->iterate([&](Packet* packet) {
+            // 确保cfgIndexLen能存储当前configIndex
             while (!satisfy(cfgIndex,cfgIndexLen)) cfgIndexLen++;
+            
+            // 记录该包在配置数据中的起始位置
             packetIndexes.insert(std::pair<Packet*,size_t>(packet,cfgIndex));
+            
+            // 输出格式控制（不是第一个则先输出逗号换行）
             if (first) first = false;
-            else stream << "," << endl;
+            else stream << "," << Qt::endl;
             stream << TAB.c_str();
+            
+            // 写入PacketType ID（仅在有多个类型时）
             if (ptidLen != 0) {
                 bytesWriteToStream(packet->getBelongsTo()->getID(),ptidLen,stream);
                 stream << ", ";
             }
+            
+            // 写入Packet ID
             bytesWriteToStream(packet->getID(),pidLen,stream);
             stream << ", ";
+            
+            // 写入数据字段数量
             bytesWriteToStream(packet->getDataNum(),dtidLen,stream);
             if (packet->getDataNum() != 0) stream << ", ";
+            
+            // 更新当前配置数据位置
             cfgIndex += ptidLen + pidLen + dtidLen;
-            bool lowFilled = false,highFilled = false;
+            
+            // 数据类型打包：两个类型打到一个字节（低4位+高4位）
+            bool lowFilled = false,highFilled = false;      // 低4位和高4位是否已填充
             unsigned char typeByte = 0;
+            
             packet->iterate([&](PBCS_DTID,Data* data) {
+                // 如果两位都满了，输出该字节并重置
                 if (lowFilled && highFilled) {
                     lowFilled = highFilled = false;
                     bytesWriteToStream(typeByte,1,stream);
                     stream << ", ";
                     typeByte = 0;
-                    cfgIndex++;
+                    cfgIndex++;  // 占用一个字节
                 }
+                
                 if (!lowFilled) {
+                    // 填充低4位
                     typeByte = getTypeMarkByte(data->getDataType());
                     lowFilled = true;
                 }else {
+                    // 填充高4位
                     typeByte += getTypeMarkByte(data->getDataType()) << 4;
                     highFilled = true;
                 }
             });
+            
+            // 如果还有未输出的低4位，输出最后一个字节
             if (lowFilled) {
                 bytesWriteToStream(typeByte,1,stream);
                 cfgIndex++;
             }
         });
+        
+        // 递归处理子层级
         iterator.nextLayer();
         writePackets(iterator,stream,ptidLen,pidLen,dtidLen,cfgIndexLen,first,cfgIndex,packetIndexes);
         iterator.prevLayer();
-        iterator.step();
+        iterator.step();  // 移到下一个同级类型
     }
 }
 
@@ -260,52 +350,52 @@ void outputC(
 
     int ptidLen2 = 0,pidLen2 = 0,dtidLen2 = 0;
     PBCS_PID totalPkt = 0;
-    Config::Iterator iterator1 = config->iterator();
+    Config::Iterator iterator1 = Config::Iterator(config);
     infoIterate(iterator1,ptidLen2,pidLen2,dtidLen2,totalPkt,parents,packetNums);
     if (ptidLen < 0 || ptidLen2 > ptidLen) ptidLen = ptidLen2;
     if (pidLen < 0 || pidLen2 > pidLen) pidLen = pidLen2;
     if (dtidLen < 0 || dtidLen2 > dtidLen) dtidLen = dtidLen2;
     if (cfgIndexLen < 0) cfgIndexLen = 0;
 
-    stream << "#include \"PBCSConfig.h\"" << endl << endl;
+    stream << "#include \"PBCSConfig.h\"" << Qt::endl << Qt::endl;
     if (!config->isNonTMod()) {
-        stream << "static const PBCS_U1 data_belonging[] = {" << endl;
+        stream << "static const PBCS_U1 data_belonging[] = {" << Qt::endl;
         bool first = true;
         for (const auto& pair : parents) {
             if (first) first = false;
-            else stream << "," << endl;
+            else stream << "," << Qt::endl;
             stream << TAB.c_str();
             bytesWriteToStream(pair.first,ptidLen,stream);
             stream << ", ";
             bytesWriteToStream(pair.second,ptidLen,stream);
         }
-        stream << endl << "};" << endl << endl;
-        stream << "static const PBCS_U1 data_packetNums[] = {" << endl;
+        stream << Qt::endl << "};" << Qt::endl << Qt::endl;
+        stream << "static const PBCS_U1 data_packetNums[] = {" << Qt::endl;
         first = true;
         for (const auto& pair : packetNums) {
             if (first) first = false;
-            else stream << "," << endl;
+            else stream << "," << Qt::endl;
             stream << TAB.c_str();
             bytesWriteToStream(pair.first,ptidLen,stream);
             stream << ", ";
             bytesWriteToStream(pair.second,pidLen,stream);
         }
-        stream << endl << "};" << endl << endl;
+        stream << Qt::endl << "};" << Qt::endl << Qt::endl;
     }
-    stream << "static const PBCS_U1 data_packets[] = {" << endl;
-    Config::Iterator iterator2 = config->iterator();
+    stream << "static const PBCS_U1 data_packets[] = {" << Qt::endl;
+    Config::Iterator iterator2 = Config::Iterator(config);
     bool first = true;
     size_t cfgIndex = 0;
     if (config->isNonTMod())
         writePackets(iterator2,stream,0,pidLen,dtidLen,cfgIndexLen,first,cfgIndex,packetIndexes);
     else
         writePackets(iterator2,stream,ptidLen,pidLen,dtidLen,cfgIndexLen,first,cfgIndex,packetIndexes);
-    stream << endl << "};" << endl << endl;
-    stream << "static const PBCS_U1 data_packetsIndexes[] = {" << endl;
+    stream << Qt::endl << "};" << Qt::endl << Qt::endl;
+    stream << "static const PBCS_U1 data_packetsIndexes[] = {" << Qt::endl;
     first = true;
     for (const auto& pair : packetIndexes) {
         if (first) first = false;
-        else stream << "," << endl;
+        else stream << "," << Qt::endl;
         stream << TAB.c_str();
         if (!config->isNonTMod()) {
             bytesWriteToStream(pair.first->getBelongsTo()->getID(),ptidLen,stream);
@@ -315,34 +405,34 @@ void outputC(
         stream << ", ";
         bytesWriteToStream(pair.second,cfgIndexLen,stream);
     }
-    stream << endl << "};" << endl << endl;
+    stream << Qt::endl << "};" << Qt::endl << Qt::endl;
 
     QString tab = "";
     if (!namespaceName.empty()) {
         tab.append(TAB.c_str());
-        stream << "namespace " << namespaceName.c_str() << " {" << endl;
+        stream << "namespace " << namespaceName.c_str() << " {" << Qt::endl;
     }
-    stream << tab << "const struct PBCS_config " << varName.c_str() << " = {" << endl;
+    stream << tab << "const struct PBCS_config " << varName.c_str() << " = {" << Qt::endl;
     if (config->isNonTMod()) {
-        stream << tab << TAB.c_str() << "0," << endl;
-        stream << tab << TAB.c_str() << "0," << endl;
+        stream << tab << TAB.c_str() << "0," << Qt::endl;
+        stream << tab << TAB.c_str() << "0," << Qt::endl;
     }else {
-        stream << tab << TAB.c_str() << "data_belonging," << endl;
-        stream << tab << TAB.c_str() << "data_packetNums," << endl;
+        stream << tab << TAB.c_str() << "data_belonging," << Qt::endl;
+        stream << tab << TAB.c_str() << "data_packetNums," << Qt::endl;
     }
-    stream << tab << TAB.c_str() << "data_packets," << endl;
-    stream << tab << TAB.c_str() << "data_packetsIndexes," << endl;
-    stream << tab << TAB.c_str() << QString::number(config->getTypesNum()) << "," << endl;
-    stream << tab << TAB.c_str() << QString::number(packetNums.size()) << "," << endl;
-    stream << tab << TAB.c_str() << QString::number(packetIndexes.size()) << "," << endl;
-    stream << tab << TAB.c_str() << QString::number(ptidLen) << "," << endl;
-    stream << tab << TAB.c_str() << QString::number(pidLen) << "," << endl;
-    stream << tab << TAB.c_str() << QString::number(vdlLen) << "," << endl;
-    stream << tab << TAB.c_str() << QString::number(dtidLen) << "," << endl;
-    stream << tab << TAB.c_str() << QString::number(cfgIndexLen) << "," << endl;
-    stream << tab << "};" << endl;
+    stream << tab << TAB.c_str() << "data_packets," << Qt::endl;
+    stream << tab << TAB.c_str() << "data_packetsIndexes," << Qt::endl;
+    stream << tab << TAB.c_str() << QString::number(config->getTypesNum()) << "," << Qt::endl;
+    stream << tab << TAB.c_str() << QString::number(packetNums.size()) << "," << Qt::endl;
+    stream << tab << TAB.c_str() << QString::number(packetIndexes.size()) << "," << Qt::endl;
+    stream << tab << TAB.c_str() << QString::number(ptidLen) << "," << Qt::endl;
+    stream << tab << TAB.c_str() << QString::number(pidLen) << "," << Qt::endl;
+    stream << tab << TAB.c_str() << QString::number(vdlLen) << "," << Qt::endl;
+    stream << tab << TAB.c_str() << QString::number(dtidLen) << "," << Qt::endl;
+    stream << tab << TAB.c_str() << QString::number(cfgIndexLen) << "," << Qt::endl;
+    stream << tab << "};" << Qt::endl;
     if (!namespaceName.empty()) {
-        stream << "}" << endl;
+        stream << "}" << Qt::endl;
     }
 
 }

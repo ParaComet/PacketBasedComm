@@ -1,11 +1,14 @@
-cmake_minimum_required(VERSION 4.0)
+cmake_minimum_required(VERSION 3.10)
 project(PBCSConfigGenerator)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_PREFIX_PATH "E:/Qt/Qt5.8.0/5.8/mingw53_32")
+# 生成 compile_commands.json 供语言服务器使用
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+#set(CMAKE_PREFIX_PATH "E:/Qt/Qt5.8.0/5.8/mingw53_32")
 
 find_package(Qt5 COMPONENTS
         Core
@@ -27,11 +30,11 @@ add_compile_definitions(-DGEN_EXECNAME=\"${GENERATOR_EXECFILE}\")
 file(REMOVE_RECURSE ${OUTPUT_PATH})
 
 execute_process( COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/res ${OUTPUT_PATH}/res)
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    execute_process( COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/qtLib/debug ${OUTPUT_PATH})
-else ()
-    execute_process( COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/qtLib/release ${OUTPUT_PATH})
-endif ()
+# if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+#     execute_process( COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/qtLib/debug ${OUTPUT_PATH})
+# else ()
+#     execute_process( COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/qtLib/release ${OUTPUT_PATH})
+# endif ()
 
 add_subdirectory(CodeGen)
 add_subdirectory(ConfigSD)

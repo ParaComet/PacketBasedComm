@@ -18,8 +18,8 @@
 #include <utility>
 
 #include "FileOperation.h"
-#include "ui_MainWindow.h"
-#include "ui_PacketEditPage.h"
+#include "ui_mainwindow.h"
+#include "ui_packeteditpage.h"
 #include "configElem/PacketType.h"
 #include "configElem/Packet.h"
 
@@ -170,7 +170,7 @@ namespace PBCS {
 
     void MainWindow::freshTreeMap() {
         ui->treeWidget->clear();
-        Config::Iterator iterator = configNow->iterator();
+        Config::Iterator iterator = Config::Iterator(configNow);
         PacketType* type = nullptr;
         while ((type = iterator.now()) != nullptr) {
             PacketTreeItem *typeItem = new PacketTreeItem(ui->treeWidget,type,*pkttypeIcon);
@@ -482,7 +482,7 @@ namespace PBCS {
                 QMessageBox::Yes | QMessageBox::No
             );
             if (reply != QMessageBox::Yes) return;
-            PacketType* pkttype = configNow->iterator().now();
+            PacketType* pkttype = Config::Iterator(configNow).now();
             itemsByType->at(pkttype)->setText(0,QString::fromStdString(NONT_MOD_TYPENAME));
             configNow->changeName(nullptr,pkttype->getName(),NONT_MOD_TYPENAME);
             configNow->changeID(pkttype->getID(),0);

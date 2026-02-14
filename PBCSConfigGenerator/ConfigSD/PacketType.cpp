@@ -104,7 +104,8 @@ namespace PBCS{
         Packet* tmp = getPacket(before);
         tmp->id = after;
         IDs->erase(before);
-        IDs->insert(std::pair<PBCS_PID,Packet*>(after,tmp));
+        //IDs->insert(std::pair<PBCS_PID,Packet*>(after,tmp));
+        IDs->insert(std::make_pair(after, tmp));
     }
 
     void PacketType::moveToAnotherType(

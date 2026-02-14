@@ -1,0 +1,8 @@
+configSD_autogen/timestamp: \
+	/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/CMakeLists.txt \
+	/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/Config.cpp \
+	/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/Data.cpp \
+	/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/FileOperation.cpp \
+	/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/Packet.cpp \
+	/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/PacketType.cpp \
+	/usr/bin/cmake

@@ -1,31 +1,31 @@
-//Ìá¹©·´ĞòÁĞ»¯Êı¾İ°üËùĞèµÄº¯Êı
+//æä¾›ååºåˆ—åŒ–æ•°æ®åŒ…æ‰€éœ€çš„å‡½æ•°
 #ifndef __PBCS_DSE_H
 #define __PBCS_DSE_H
 
-//Êı¾İ°ü¸ñÊ½¼û PBCSSe.h
+//æ•°æ®åŒ…æ ¼å¼è§ PBCSSe.h
 
 #include "PBCSCFGFile.h"
 
 /**
- * ´Ó´«ÈëµÄÅäÖÃÎª´ı½âÎöµÄÊı¾İ°üÕÒµ½ËùĞèµÄÊı¾İ°üÅäÖÃ
- * @param result Ñ°ÕÒ½á¹û
- * @param config ´Ë´Î½âÎöÊ¹ÓÃµÄÅäÖÃ
- * @param pkgData ĞèÒª½âÎöµÄÊı¾İ°ü
- * @return ½âÎöÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * ä»ä¼ å…¥çš„é…ç½®ä¸ºå¾…è§£æçš„æ•°æ®åŒ…æ‰¾åˆ°æ‰€éœ€çš„æ•°æ®åŒ…é…ç½®
+ * @param result å¯»æ‰¾ç»“æœ
+ * @param config æ­¤æ¬¡è§£æä½¿ç”¨çš„é…ç½®
+ * @param pkgData éœ€è¦è§£æçš„æ•°æ®åŒ…
+ * @return è§£ææ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getPacketCfgFromStream(PBCS_CFGINDEX* result,const struct PBCS_config* config,const PBCS_U1* pkgData);
 
 /**
- * ¸ù¾İ´«ÈëµÄÅäÖÃºÍ¾ßÌåµÄ´ı½âÎöµÄÊı¾İ°ü½¨Á¢Î»ÒÆÊı×é,²¢·µ»ØÆäÖĞËùÓĞ¿É±ä³¤¶ÈÊı¾İµÄ³¤¶È
- * ´«ÈëµÄ result Êı×é³¤¶È²»Ó¦ÉÙÓÚ´ËÊı¾İ°üÖĞµÄÊı¾İ¸öÊı+1
- * ´«ÈëµÄ vdLens Êı×é³¤¶È²»Ó¦ÉÙÓÚ´ËÊı¾İ°üÖĞµÄ¿É±ä³¤¶ÈÊı¾İ¸öÊı
- * @param result ½¨Á¢½á¹û
- * @param vdLens ËùÓĞ¿É±ä³¤¶ÈÊı¾İµÄ³¤¶È,°´Êı¾İIDºÅ´ÓĞ¡µ½´óÅÅÁĞ
- * @param vdNum ·µ»Ø¿É±äÊı¾İµÄ¸öÊı
- * @param config ´Ë´Î½âÎöÊ¹ÓÃµÄÅäÖÃ
- * @param pkgConfig PBCS_getPacketCfg ½âÎöµ½µÄÊı¾İ°üÅäÖÃ
- * @param pkgData ĞèÒª½âÎöµÄÊı¾İ°ü
- * @return ½âÎöÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * æ ¹æ®ä¼ å…¥çš„é…ç½®å’Œå…·ä½“çš„å¾…è§£æçš„æ•°æ®åŒ…å»ºç«‹ä½ç§»æ•°ç»„,å¹¶è¿”å›å…¶ä¸­æ‰€æœ‰å¯å˜é•¿åº¦æ•°æ®çš„é•¿åº¦
+ * ä¼ å…¥çš„ result æ•°ç»„é•¿åº¦ä¸åº”å°‘äºæ­¤æ•°æ®åŒ…ä¸­çš„æ•°æ®ä¸ªæ•°+1
+ * ä¼ å…¥çš„ vdLens æ•°ç»„é•¿åº¦ä¸åº”å°‘äºæ­¤æ•°æ®åŒ…ä¸­çš„å¯å˜é•¿åº¦æ•°æ®ä¸ªæ•°
+ * @param result å»ºç«‹ç»“æœ
+ * @param vdLens æ‰€æœ‰å¯å˜é•¿åº¦æ•°æ®çš„é•¿åº¦,æŒ‰æ•°æ®IDå·ä»å°åˆ°å¤§æ’åˆ—
+ * @param vdNum è¿”å›å¯å˜æ•°æ®çš„ä¸ªæ•°
+ * @param config æ­¤æ¬¡è§£æä½¿ç”¨çš„é…ç½®
+ * @param pkgConfig PBCS_getPacketCfg è§£æåˆ°çš„æ•°æ®åŒ…é…ç½®
+ * @param pkgData éœ€è¦è§£æçš„æ•°æ®åŒ…
+ * @return è§£ææ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getPacketDataOffsets(
     PBCS_DATAINDEX* result,
@@ -37,113 +37,113 @@ PBCS_U4 PBCS_getPacketDataOffsets(
 );
 
 /**
- * »ñÈ¡Êı¾İ°üÖĞµÄÖ¸¶¨Êı¾İ,½á¹ûÒÔ PBCS_U1 ÀàĞÍ·µ»Ø
- * @param result »ñÈ¡½á¹û
- * @param offsets PBCS_getPacketDataOffsets »ñÈ¡µÄÆ«ÒÆÊı×é
- * @param dataID Êı¾İID
- * @param pkgData ĞèÒª½âÎöµÄÊı¾İ°ü
- * @return ½âÎöÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * è·å–æ•°æ®åŒ…ä¸­çš„æŒ‡å®šæ•°æ®,ç»“æœä»¥ PBCS_U1 ç±»å‹è¿”å›
+ * @param result è·å–ç»“æœ
+ * @param offsets PBCS_getPacketDataOffsets è·å–çš„åç§»æ•°ç»„
+ * @param dataID æ•°æ®ID
+ * @param pkgData éœ€è¦è§£æçš„æ•°æ®åŒ…
+ * @return è§£ææ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getDataByU1(PBCS_U1* result,const PBCS_DATAINDEX* offsets,PBCS_DTID dataID,const PBCS_U1* pkgData);
 
 /**
- * »ñÈ¡Êı¾İ°üÖĞµÄÖ¸¶¨Êı¾İ,½á¹ûÒÔ PBCS_U2 ÀàĞÍ·µ»Ø
- * @param result »ñÈ¡½á¹û
- * @param offsets PBCS_getPacketDataOffsets »ñÈ¡µÄÆ«ÒÆÊı×é
- * @param dataID Êı¾İID
- * @param pkgData ĞèÒª½âÎöµÄÊı¾İ°ü
- * @return ½âÎöÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * è·å–æ•°æ®åŒ…ä¸­çš„æŒ‡å®šæ•°æ®,ç»“æœä»¥ PBCS_U2 ç±»å‹è¿”å›
+ * @param result è·å–ç»“æœ
+ * @param offsets PBCS_getPacketDataOffsets è·å–çš„åç§»æ•°ç»„
+ * @param dataID æ•°æ®ID
+ * @param pkgData éœ€è¦è§£æçš„æ•°æ®åŒ…
+ * @return è§£ææ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getDataByU2(PBCS_U2* result,const PBCS_DATAINDEX* offsets,PBCS_DTID dataID,const PBCS_U1* pkgData);
 
 /**
- * »ñÈ¡Êı¾İ°üÖĞµÄÖ¸¶¨Êı¾İ,½á¹ûÒÔ PBCS_U4 ÀàĞÍ·µ»Ø
- * @param result »ñÈ¡½á¹û
- * @param offsets PBCS_getPacketDataOffsets »ñÈ¡µÄÆ«ÒÆÊı×é
- * @param dataID Êı¾İID
- * @param pkgData ĞèÒª½âÎöµÄÊı¾İ°ü
- * @return ½âÎöÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * è·å–æ•°æ®åŒ…ä¸­çš„æŒ‡å®šæ•°æ®,ç»“æœä»¥ PBCS_U4 ç±»å‹è¿”å›
+ * @param result è·å–ç»“æœ
+ * @param offsets PBCS_getPacketDataOffsets è·å–çš„åç§»æ•°ç»„
+ * @param dataID æ•°æ®ID
+ * @param pkgData éœ€è¦è§£æçš„æ•°æ®åŒ…
+ * @return è§£ææ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getDataByU4(PBCS_U4* result,const PBCS_DATAINDEX* offsets,PBCS_DTID dataID,const PBCS_U1* pkgData);
 
 /**
- * »ñÈ¡Êı¾İ°üÖĞµÄÖ¸¶¨Êı¾İ,½á¹ûÒÔ PBCS_I1 ÀàĞÍ·µ»Ø
- * @param result »ñÈ¡½á¹û
- * @param offsets PBCS_getPacketDataOffsets »ñÈ¡µÄÆ«ÒÆÊı×é
- * @param dataID Êı¾İID
- * @param pkgData ĞèÒª½âÎöµÄÊı¾İ°ü
- * @return ½âÎöÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * è·å–æ•°æ®åŒ…ä¸­çš„æŒ‡å®šæ•°æ®,ç»“æœä»¥ PBCS_I1 ç±»å‹è¿”å›
+ * @param result è·å–ç»“æœ
+ * @param offsets PBCS_getPacketDataOffsets è·å–çš„åç§»æ•°ç»„
+ * @param dataID æ•°æ®ID
+ * @param pkgData éœ€è¦è§£æçš„æ•°æ®åŒ…
+ * @return è§£ææ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getDataByI1(PBCS_I1* result,const PBCS_DATAINDEX* offsets,PBCS_DTID dataID,const PBCS_U1* pkgData);
 
 /**
- * »ñÈ¡Êı¾İ°üÖĞµÄÖ¸¶¨Êı¾İ,½á¹ûÒÔ PBCS_I2 ÀàĞÍ·µ»Ø
- * @param result »ñÈ¡½á¹û
- * @param offsets PBCS_getPacketDataOffsets »ñÈ¡µÄÆ«ÒÆÊı×é
- * @param dataID Êı¾İID
- * @param pkgData ĞèÒª½âÎöµÄÊı¾İ°ü
- * @return ½âÎöÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * è·å–æ•°æ®åŒ…ä¸­çš„æŒ‡å®šæ•°æ®,ç»“æœä»¥ PBCS_I2 ç±»å‹è¿”å›
+ * @param result è·å–ç»“æœ
+ * @param offsets PBCS_getPacketDataOffsets è·å–çš„åç§»æ•°ç»„
+ * @param dataID æ•°æ®ID
+ * @param pkgData éœ€è¦è§£æçš„æ•°æ®åŒ…
+ * @return è§£ææ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getDataByI2(PBCS_I2* result,const PBCS_DATAINDEX* offsets,PBCS_DTID dataID,const PBCS_U1* pkgData);
 
 /**
- * »ñÈ¡Êı¾İ°üÖĞµÄÖ¸¶¨Êı¾İ,½á¹ûÒÔ PBCS_I4 ÀàĞÍ·µ»Ø
- * @param result »ñÈ¡½á¹û
- * @param offsets PBCS_getPacketDataOffsets »ñÈ¡µÄÆ«ÒÆÊı×é
- * @param dataID Êı¾İID
- * @param pkgData ĞèÒª½âÎöµÄÊı¾İ°ü
- * @return ½âÎöÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * è·å–æ•°æ®åŒ…ä¸­çš„æŒ‡å®šæ•°æ®,ç»“æœä»¥ PBCS_I4 ç±»å‹è¿”å›
+ * @param result è·å–ç»“æœ
+ * @param offsets PBCS_getPacketDataOffsets è·å–çš„åç§»æ•°ç»„
+ * @param dataID æ•°æ®ID
+ * @param pkgData éœ€è¦è§£æçš„æ•°æ®åŒ…
+ * @return è§£ææ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getDataByI4(PBCS_I4* result,const PBCS_DATAINDEX* offsets,PBCS_DTID dataID,const PBCS_U1* pkgData);
 
 /**
- * »ñÈ¡Êı¾İ°üÖĞµÄÖ¸¶¨Êı¾İ,½á¹ûÒÔ PBCS_I1 ÀàĞÍ·µ»Ø
- * @param result »ñÈ¡½á¹û
- * @param offsets PBCS_getPacketDataOffsets »ñÈ¡µÄÆ«ÒÆÊı×é
- * @param dataID Êı¾İID
- * @param pkgData ĞèÒª½âÎöµÄÊı¾İ°ü
- * @return ½âÎöÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * è·å–æ•°æ®åŒ…ä¸­çš„æŒ‡å®šæ•°æ®,ç»“æœä»¥ PBCS_I1 ç±»å‹è¿”å›
+ * @param result è·å–ç»“æœ
+ * @param offsets PBCS_getPacketDataOffsets è·å–çš„åç§»æ•°ç»„
+ * @param dataID æ•°æ®ID
+ * @param pkgData éœ€è¦è§£æçš„æ•°æ®åŒ…
+ * @return è§£ææ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getDataByF4(PBCS_F4* result,const PBCS_DATAINDEX* offsets,PBCS_DTID dataID,const PBCS_U1* pkgData);
 
 /**
- * »ñÈ¡Êı¾İ°üÖĞµÄÖ¸¶¨Êı¾İ,½á¹ûÒÔ PBCS_U1* ÀàĞÍ·µ»Ø
- * @param result »ñÈ¡½á¹û
- * @param offsets PBCS_getPacketDataOffsets »ñÈ¡µÄÆ«ÒÆÊı×é
- * @param dataID Êı¾İID
- * @param pkgData ĞèÒª½âÎöµÄÊı¾İ°ü
- * @return ½âÎöÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * è·å–æ•°æ®åŒ…ä¸­çš„æŒ‡å®šæ•°æ®,ç»“æœä»¥ PBCS_U1* ç±»å‹è¿”å›
+ * @param result è·å–ç»“æœ
+ * @param offsets PBCS_getPacketDataOffsets è·å–çš„åç§»æ•°ç»„
+ * @param dataID æ•°æ®ID
+ * @param pkgData éœ€è¦è§£æçš„æ•°æ®åŒ…
+ * @return è§£ææ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getDataByV(PBCS_U1* result,const PBCS_DATAINDEX* offsets,PBCS_DTID dataID,const PBCS_U1* pkgData);
 
 #ifdef PBCS_8BIT_SPT
 /**
- * »ñÈ¡Êı¾İ°üÖĞµÄÖ¸¶¨Êı¾İ,½á¹ûÒÔ PBCS_U8 ÀàĞÍ·µ»Ø
- * @param result »ñÈ¡½á¹û
- * @param offsets PBCS_getPacketDataOffsets »ñÈ¡µÄÆ«ÒÆÊı×é
- * @param dataID Êı¾İID
- * @param pkgData ĞèÒª½âÎöµÄÊı¾İ°ü
- * @return ½âÎöÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * è·å–æ•°æ®åŒ…ä¸­çš„æŒ‡å®šæ•°æ®,ç»“æœä»¥ PBCS_U8 ç±»å‹è¿”å›
+ * @param result è·å–ç»“æœ
+ * @param offsets PBCS_getPacketDataOffsets è·å–çš„åç§»æ•°ç»„
+ * @param dataID æ•°æ®ID
+ * @param pkgData éœ€è¦è§£æçš„æ•°æ®åŒ…
+ * @return è§£ææ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getDataByU8(PBCS_U8* result,const PBCS_DATAINDEX* offsets,PBCS_DTID dataID,const PBCS_U1* pkgData);
 
 /**
- * »ñÈ¡Êı¾İ°üÖĞµÄÖ¸¶¨Êı¾İ,½á¹ûÒÔ PBCS_I8 ÀàĞÍ·µ»Ø
- * @param result »ñÈ¡½á¹û
- * @param offsets PBCS_getPacketDataOffsets »ñÈ¡µÄÆ«ÒÆÊı×é
- * @param dataID Êı¾İID
- * @param pkgData ĞèÒª½âÎöµÄÊı¾İ°ü
- * @return ½âÎöÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * è·å–æ•°æ®åŒ…ä¸­çš„æŒ‡å®šæ•°æ®,ç»“æœä»¥ PBCS_I8 ç±»å‹è¿”å›
+ * @param result è·å–ç»“æœ
+ * @param offsets PBCS_getPacketDataOffsets è·å–çš„åç§»æ•°ç»„
+ * @param dataID æ•°æ®ID
+ * @param pkgData éœ€è¦è§£æçš„æ•°æ®åŒ…
+ * @return è§£ææ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getDataByI8(PBCS_I8* result,const PBCS_DATAINDEX* offsets,PBCS_DTID dataID,const PBCS_U1* pkgData);
 
 /**
- * »ñÈ¡Êı¾İ°üÖĞµÄÖ¸¶¨Êı¾İ,½á¹ûÒÔ PBCS_F8 ÀàĞÍ·µ»Ø
- * @param result »ñÈ¡½á¹û
- * @param offsets PBCS_getPacketDataOffsets »ñÈ¡µÄÆ«ÒÆÊı×é
- * @param dataID Êı¾İID
- * @param pkgData ĞèÒª½âÎöµÄÊı¾İ°ü
- * @return ½âÎöÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * è·å–æ•°æ®åŒ…ä¸­çš„æŒ‡å®šæ•°æ®,ç»“æœä»¥ PBCS_F8 ç±»å‹è¿”å›
+ * @param result è·å–ç»“æœ
+ * @param offsets PBCS_getPacketDataOffsets è·å–çš„åç§»æ•°ç»„
+ * @param dataID æ•°æ®ID
+ * @param pkgData éœ€è¦è§£æçš„æ•°æ®åŒ…
+ * @return è§£ææ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getDataByF8(PBCS_F8* result,const PBCS_DATAINDEX* offsets,PBCS_DTID dataID,const PBCS_U1* pkgData);
 #endif

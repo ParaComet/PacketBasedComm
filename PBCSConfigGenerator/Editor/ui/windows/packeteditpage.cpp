@@ -9,7 +9,7 @@
 #include <QMessageBox>
 #include <utility>
 
-#include "ui_PacketEditPage.h"
+#include "ui_packeteditpage.h"
 #include "configElem/PacketType.h"
 #include "configElem/Data.h"
 

@@ -12,7 +12,7 @@
 #include <QProcess>
 #include <QDebug>
 
-#include "ui_GenerateWindow.h"
+#include "ui_generatewindow.h"
 
 namespace PBCS {
 
@@ -96,8 +96,19 @@ namespace PBCS {
 
             QStringList command;
             command << this->cfgFileName;
-            command << dir.absoluteFilePath(ui->hFileText->text());
-            command << dir.absoluteFilePath(ui->cFileText->text());
+            //自动补全扩展，无补全时有些反直觉啊，还会吞文件
+            QString hFileName = ui->hFileText->text();
+            QString cFileName = ui->cFileText->text();
+            
+            if (!hFileName.endsWith(".h", Qt::CaseInsensitive)) {
+                hFileName.append(".h");
+            }
+            if (!cFileName.endsWith(".c", Qt::CaseInsensitive)) {
+                cFileName.append(".c");
+            }
+            
+            command << dir.absoluteFilePath(hFileName);
+            command << dir.absoluteFilePath(cFileName);
             command << ui->configVarText->text();
             command << onceDefine;
             command << ui->vdlLenText->text();

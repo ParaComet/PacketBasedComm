@@ -3,32 +3,32 @@
 
 #include "PBCSConfig.h"
 
-//±È½Ï½á¹ûÀàĞÍ
+//æ¯”è¾ƒç»“æœç±»å‹
 typedef PBCS_I1 BNRSCH_COMP;
-//Êı¾İ³¤¶ÈÀàĞÍ
+//æ•°æ®é•¿åº¦ç±»å‹
 #ifdef PBCS_8BIT_SPT
 typedef PBCS_U8 BNRSCH_LEN;
 #else
 typedef PBCS_U4 BNRSCH_LEN;
 #endif
-//1×Ö½ÚÎŞ·ûºÅÕûÊıÀàĞÍ
+//1å­—èŠ‚æ— ç¬¦å·æ•´æ•°ç±»å‹
 typedef PBCS_U1 BNRSCH_U1;
 
-//³éÏó³öµÄ±È½Ïº¯Êı,Èôdata1>data2·µ»ØÖµÓ¦´óÓÚ0,Èôdata1==data2·µ»ØÖµÓ¦µÈÓÚ0,·ñÔò·µ»ØÖµÓ¦Ğ¡ÓÚ0
+//æŠ½è±¡å‡ºçš„æ¯”è¾ƒå‡½æ•°,è‹¥data1>data2è¿”å›å€¼åº”å¤§äº0,è‹¥data1==data2è¿”å›å€¼åº”ç­‰äº0,å¦åˆ™è¿”å›å€¼åº”å°äº0
 typedef BNRSCH_COMP (*BNRSCH_compareTo)(const void* data1,const void* data2,const void* args);
-//³éÏó³öµÄÈ¡Öµº¯Êı,datas´ú±íËùÓĞÊı¾İµÄ¼¯ºÏ,indexÊÇĞèÒªÈ¡µÄÔªËØµÄË÷Òı
+//æŠ½è±¡å‡ºçš„å–å€¼å‡½æ•°,datasä»£è¡¨æ‰€æœ‰æ•°æ®çš„é›†åˆ,indexæ˜¯éœ€è¦å–çš„å…ƒç´ çš„ç´¢å¼•
 typedef const void* (*BNRSCH_access)(const void* datas,BNRSCH_LEN index,const void* args);
 
 /**
- * Ê¹ÓÃ¶ş·Ö·¨ÔÚÓĞĞò¼¯ºÏÖĞµÄÄ³¸ö²¿·Ö²éÕÒÖ¸¶¨Êı¾İ
- * @param datas ÓĞĞò¼¯ºÏ
- * @param data Òª²éÕÒµÄÊı¾İ
- * @param start ĞèÒª²éÕÒ²¿·ÖµÄÆğÊ¼Ë÷Òı
- * @param len ĞèÒª²éÕÒ²¿·ÖµÄ³¤¶È
- * @param comp ´Ë´Î²éÕÒÊ¹ÓÃµÄ±È½Ïº¯Êı,µÚ¶ş¸ö²ÎÊıºã´«Èë data
- * @param access ´Ë´Î²éÕÒÊ¹ÓÃµÄÈ¡Öµº¯Êı
- * @param result Èô²éÕÒ³É¹¦Ôò·µ»Ø²éÕÒµ½µÄÊı¾İµÄÏÂ±ê
- * @return Èô²éÕÒ³É¹¦Ôò·µ»Ø1,·ñÔò·µ»Ø0
+ * ä½¿ç”¨äºŒåˆ†æ³•åœ¨æœ‰åºé›†åˆä¸­çš„æŸä¸ªéƒ¨åˆ†æŸ¥æ‰¾æŒ‡å®šæ•°æ®
+ * @param datas æœ‰åºé›†åˆ
+ * @param data è¦æŸ¥æ‰¾çš„æ•°æ®
+ * @param start éœ€è¦æŸ¥æ‰¾éƒ¨åˆ†çš„èµ·å§‹ç´¢å¼•
+ * @param len éœ€è¦æŸ¥æ‰¾éƒ¨åˆ†çš„é•¿åº¦
+ * @param comp æ­¤æ¬¡æŸ¥æ‰¾ä½¿ç”¨çš„æ¯”è¾ƒå‡½æ•°,ç¬¬äºŒä¸ªå‚æ•°æ’ä¼ å…¥ data
+ * @param access æ­¤æ¬¡æŸ¥æ‰¾ä½¿ç”¨çš„å–å€¼å‡½æ•°
+ * @param result è‹¥æŸ¥æ‰¾æˆåŠŸåˆ™è¿”å›æŸ¥æ‰¾åˆ°çš„æ•°æ®çš„ä¸‹æ ‡
+ * @return è‹¥æŸ¥æ‰¾æˆåŠŸåˆ™è¿”å›1,å¦åˆ™è¿”å›0
  */
 BNRSCH_U1 BNRSCH_find(
     const void* datas,

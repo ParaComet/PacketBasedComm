@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.0)
+cmake_minimum_required(VERSION 3.10)
 project(Editor)
 
 file(GLOB_RECURSE SRC_UI ./ui/*.cpp)

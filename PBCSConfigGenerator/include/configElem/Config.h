@@ -42,9 +42,8 @@ namespace PBCS {
             std::stack<std::unordered_set<TreeNode*>*>* parentSets;
             std::unordered_set<TreeNode*>* nowSet;
             std::unordered_set<TreeNode*>::iterator nowIt;
-            explicit Iterator(Config* configBelongsTo);
-            friend class Config;
         public:
+            explicit Iterator(Config* configBelongsTo);
             Iterator(Iterator&& it) noexcept ;
             ~Iterator();
             PacketType* now();
@@ -71,7 +70,6 @@ namespace PBCS {
         void changeName(PacketType* parent,const std::string& needToChange,std::string newName);
         void changeID(PBCS_PTID needToChange,PBCS_PTID newID);
         void changeParent(PacketType* needToChange,PacketType* newParent,std::string newName);
-        Iterator iterator();
     };
 
 }

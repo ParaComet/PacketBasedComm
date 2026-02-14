@@ -1,2 +1,4 @@
 /PBCSConfigGenerator/output
 /PBCSConfigGenerator/qtLib
+/.vscode
+/build

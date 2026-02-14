@@ -136,7 +136,7 @@ PBCS_U4 PBCS_getAllOccupiedPacketTypes(PBCS_PTID* result,const struct PBCS_confi
     }
 }
 
-//内部函数,获取数据包类型在 packetNums 数组里的位置
+//鍐呴儴鍑芥暟,鑾峰彇鏁版嵁鍖呯被鍨嬪湪 packetNums 鏁扮粍閲岀殑浣嶇疆
 PBCS_U4 PBCS_getPacketTypeIndex(BNRSCH_LEN* result,const struct PBCS_config* config,PBCS_PTID pkgTypeID){
     BNRSCH_LEN position = 0;
     PBCS_I2 i;

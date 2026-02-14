@@ -1,18 +1,18 @@
 #ifndef __PBCT_CONFIG_H
 #define __PBCT_CONFIG_H
 
-//ÆğÊ¼×Ö½Ú
+//èµ·å§‹å­—èŠ‚
 #define PBCT_START_BYTE 0xAA
-//×ªÒå×Ö½Ú
+//è½¬ä¹‰å­—èŠ‚
 #define PBCT_TM_BYTE 0xAB
-//½áÊø×Ö½Ú
+//ç»“æŸå­—èŠ‚
 #define PBCT_END_BYTE 0xAC
 
-//ÎŞ·ûºÅÒ»Î»ÕûĞÎ
+//æ— ç¬¦å·ä¸€ä½æ•´å½¢
 typedef unsigned char PBCT_U1;
-//CRC¶àÏîÊ½ÀàĞÍ,ĞèÎªÎŞ·ûºÅ
+//CRCå¤šé¡¹å¼ç±»å‹,éœ€ä¸ºæ— ç¬¦å·
 typedef unsigned short PBCT_CRCPOLY;
-//Êı¾İ³¤¶ÈÀàĞÍ
+//æ•°æ®é•¿åº¦ç±»å‹
 typedef unsigned int PBCT_DTLEN;
 
 #endif

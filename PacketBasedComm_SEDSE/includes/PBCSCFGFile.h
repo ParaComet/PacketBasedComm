@@ -1,10 +1,10 @@
-//Ìá¹©¼ÓÔØÅäÖÃºÍ»ñÈ¡¹ØÓÚÅäÖÃ±¾ÉíµÄÒ»Ğ©ĞÅÏ¢µÄº¯Êı
+//æä¾›åŠ è½½é…ç½®å’Œè·å–å…³äºé…ç½®æœ¬èº«çš„ä¸€äº›ä¿¡æ¯çš„å‡½æ•°
 #ifndef __PBCS_CONFIGURATION_FILE_H
 #define __PBCS_CONFIGURATION_FILE_H
 
 #include "PBCSConfig.h"
 
-//Êı¾İÀàĞÍ±êÊ¶
+//æ•°æ®ç±»å‹æ ‡è¯†
 #define PBCS_DTMARK_U1 0x00 //u1
 #define PBCS_DTMARK_U2 0x01 //u2
 #define PBCS_DTMARK_U4 0x02 //u4
@@ -20,95 +20,95 @@
 #endif
 
 /**
- * °´Êı¾İ°üÀàĞÍIDºÍÊı¾İ°üIDÔÚÖ¸¶¨ÅäÖÃÖĞ»ñÈ¡Êı¾İ°üÅäÖÃ
- * @param result »ñÈ¡½á¹û
- * @param config Ö¸¶¨µÄÅäÖÃ
- * @param pkgTypeID Êı¾İ°üÀàĞÍID,ÈôÎªÎŞÀàĞÍÄ£Ê½¿ÉÈÎÒâÌî
- * @param pkgID Êı¾İ°üID
- * @return »ñÈ¡Ê±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * æŒ‰æ•°æ®åŒ…ç±»å‹IDå’Œæ•°æ®åŒ…IDåœ¨æŒ‡å®šé…ç½®ä¸­è·å–æ•°æ®åŒ…é…ç½®
+ * @param result è·å–ç»“æœ
+ * @param config æŒ‡å®šçš„é…ç½®
+ * @param pkgTypeID æ•°æ®åŒ…ç±»å‹ID,è‹¥ä¸ºæ— ç±»å‹æ¨¡å¼å¯ä»»æ„å¡«
+ * @param pkgID æ•°æ®åŒ…ID
+ * @return è·å–æ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getPacketCfg(PBCS_CFGINDEX* result,const struct PBCS_config* config,PBCS_PTID pkgTypeID,PBCS_PID pkgID);
 
 /**
- * ¸ù¾İÖ¸¶¨ÅäÖÃÅĞ¶ÏÁ½Êı¾İ°üÀàĞÍÊÇ·ñÓĞ´ÓÊô¹ØÏµ
- * @param result ÅĞ¶Ï½á¹û
- * @param config Ö¸¶¨µÄÅäÖÃ
- * @param child ½«Òª±»ÅĞ¶¨ÎªÊôÓÚ parent µÄÊı¾İ°üÀàĞÍID
- * @param parent ½«Òª±»ÅĞ¶¨Îª°üº¬ child µÄÊı¾İ°üÀàĞÍID
- * @result ÅĞ¶ÏÊ±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * æ ¹æ®æŒ‡å®šé…ç½®åˆ¤æ–­ä¸¤æ•°æ®åŒ…ç±»å‹æ˜¯å¦æœ‰ä»å±å…³ç³»
+ * @param result åˆ¤æ–­ç»“æœ
+ * @param config æŒ‡å®šçš„é…ç½®
+ * @param child å°†è¦è¢«åˆ¤å®šä¸ºå±äº parent çš„æ•°æ®åŒ…ç±»å‹ID
+ * @param parent å°†è¦è¢«åˆ¤å®šä¸ºåŒ…å« child çš„æ•°æ®åŒ…ç±»å‹ID
+ * @result åˆ¤æ–­æ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_isBelongTo(PBCS_BOOL* result,const struct PBCS_config* config,PBCS_PTID child,PBCS_PTID parent);
 
 /**
- * ¸ù¾İÖ¸¶¨ÅäÖÃ»ñÈ¡Êı¾İ°üËùÊôµÄÊı¾İ°üÀàĞÍID
- * @param result »ñÈ¡½á¹û
- * @param config Ö¸¶¨µÄÅäÖÃ
- * @param pkgConfig Êı¾İ°üÅäÖÃ
- * @return »ñÈ¡Ê±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * æ ¹æ®æŒ‡å®šé…ç½®è·å–æ•°æ®åŒ…æ‰€å±çš„æ•°æ®åŒ…ç±»å‹ID
+ * @param result è·å–ç»“æœ
+ * @param config æŒ‡å®šçš„é…ç½®
+ * @param pkgConfig æ•°æ®åŒ…é…ç½®
+ * @return è·å–æ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_pktIsBelongTo(PBCS_PTID* result,const struct PBCS_config* config,PBCS_CFGINDEX pkgConfig);
 
 /**
- * ¸ù¾İÖ¸¶¨ÅäÖÃ»ñÈ¡Êı¾İ°üID
- * @param result »ñÈ¡½á¹û
- * @param config Ö¸¶¨µÄÅäÖÃ
- * @param pkgConfig Êı¾İ°üÅäÖÃ
- * @return »ñÈ¡Ê±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * æ ¹æ®æŒ‡å®šé…ç½®è·å–æ•°æ®åŒ…ID
+ * @param result è·å–ç»“æœ
+ * @param config æŒ‡å®šçš„é…ç½®
+ * @param pkgConfig æ•°æ®åŒ…é…ç½®
+ * @return è·å–æ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getPacketID(PBCS_PID* result,const struct PBCS_config* config,PBCS_CFGINDEX pkgConfig);
 
 /**
- * ¸ù¾İÖ¸¶¨ÅäÖÃ»ñÈ¡ËùÓĞÒÑ×¢²áµÄÊı¾İ°üÀàĞÍµÄID,Ë³Ğò´æ·Å
- * result µÄ³¤¶È²»Ó¦Ğ¡ÓÚ config->totalTypes
- * @param result »ñÈ¡½á¹û
- * @param config Ö¸¶¨µÄÅäÖÃ
- * @return »ñÈ¡Ê±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * æ ¹æ®æŒ‡å®šé…ç½®è·å–æ‰€æœ‰å·²æ³¨å†Œçš„æ•°æ®åŒ…ç±»å‹çš„ID,é¡ºåºå­˜æ”¾
+ * result çš„é•¿åº¦ä¸åº”å°äº config->totalTypes
+ * @param result è·å–ç»“æœ
+ * @param config æŒ‡å®šçš„é…ç½®
+ * @return è·å–æ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getAllPacketTypes(PBCS_PTID* result,const struct PBCS_config* config);
 
 /**
- * ¸ù¾İÖ¸¶¨ÅäÖÃ»ñÈ¡ËùÓĞÒÑ×¢²áµÄÓĞÊı¾İ°üµÄÊı¾İ°üÀàĞÍµÄID,Ë³Ğò´æ·Å
- * result µÄ³¤¶È²»Ó¦Ğ¡ÓÚ config->occupiedTypes
- * @param result »ñÈ¡½á¹û
- * @param config Ö¸¶¨µÄÅäÖÃ
- * @return »ñÈ¡Ê±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * æ ¹æ®æŒ‡å®šé…ç½®è·å–æ‰€æœ‰å·²æ³¨å†Œçš„æœ‰æ•°æ®åŒ…çš„æ•°æ®åŒ…ç±»å‹çš„ID,é¡ºåºå­˜æ”¾
+ * result çš„é•¿åº¦ä¸åº”å°äº config->occupiedTypes
+ * @param result è·å–ç»“æœ
+ * @param config æŒ‡å®šçš„é…ç½®
+ * @return è·å–æ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getAllOccupiedPacketTypes(PBCS_PTID* result,const struct PBCS_config* config);
 
 /**
- * ¸ù¾İ´«ÈëµÄÅäÖÃ»ñÈ¡Ä³¸öÖ¸¶¨Êı¾İ°üÀàĞÍÏÂµÄÊı¾İ°ü¸öÊı
- * @param result »ñÈ¡½á¹û
- * @param config Ö¸¶¨µÄÅäÖÃ
- * @param pkgTypeID Êı¾İ°üÀàĞÍID
- * @return »ñÈ¡Ê±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * æ ¹æ®ä¼ å…¥çš„é…ç½®è·å–æŸä¸ªæŒ‡å®šæ•°æ®åŒ…ç±»å‹ä¸‹çš„æ•°æ®åŒ…ä¸ªæ•°
+ * @param result è·å–ç»“æœ
+ * @param config æŒ‡å®šçš„é…ç½®
+ * @param pkgTypeID æ•°æ®åŒ…ç±»å‹ID
+ * @return è·å–æ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getPacketsNum(PBCS_PID* result,const struct PBCS_config* config,PBCS_PTID pkgTypeID);
 
 /**
- * ¸ù¾İ´«ÈëµÄÅäÖÃ»ñÈ¡Ä³¸öÖ¸¶¨Êı¾İ°üÀàĞÍÏÂËùÓĞµÄÊı¾İ°üID,Ë³Ğò´æ·Å
- * @param result »ñÈ¡½á¹û
- * @param config Ö¸¶¨µÄÅäÖÃ
- * @param pkgTypeID Êı¾İ°üÀàĞÍID
- * @return »ñÈ¡Ê±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * æ ¹æ®ä¼ å…¥çš„é…ç½®è·å–æŸä¸ªæŒ‡å®šæ•°æ®åŒ…ç±»å‹ä¸‹æ‰€æœ‰çš„æ•°æ®åŒ…ID,é¡ºåºå­˜æ”¾
+ * @param result è·å–ç»“æœ
+ * @param config æŒ‡å®šçš„é…ç½®
+ * @param pkgTypeID æ•°æ®åŒ…ç±»å‹ID
+ * @return è·å–æ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getPackets(PBCS_PID* result,const struct PBCS_config* config,PBCS_PTID pkgTypeID);
 
 /**
- * ¸ù¾İÖ¸¶¨ÅäÖÃ»ñÈ¡Êı¾İ°üµÄÊı¾İ¸öÊı
- * @param result »ñÈ¡½á¹û
- * @param config Ö¸¶¨µÄÅäÖÃ
- * @param pkgConfig Êı¾İ°üÅäÖÃ
- * @return »ñÈ¡Ê±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * æ ¹æ®æŒ‡å®šé…ç½®è·å–æ•°æ®åŒ…çš„æ•°æ®ä¸ªæ•°
+ * @param result è·å–ç»“æœ
+ * @param config æŒ‡å®šçš„é…ç½®
+ * @param pkgConfig æ•°æ®åŒ…é…ç½®
+ * @return è·å–æ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getDataNum(PBCS_DTID* result,const struct PBCS_config* config,PBCS_CFGINDEX pkgConfig);
 
 /**
- * ¸ù¾İÖ¸¶¨ÅäÖÃ»ñÈ¡Êı¾İ°üÖ¸¶¨Êı¾İIDµÄÊı¾İÀàĞÍ±êÊ¶
- * @param result »ñÈ¡½á¹û
- * @param dtid ĞèÒª»ñÈ¡µÄÊı¾İID
- * @param config Ö¸¶¨µÄÅäÖÃ
- * @param pkgConfig Êı¾İ°üÅäÖÃ
- * @return »ñÈ¡Ê±ÈôÓĞ´íÎóÔò·µ»Ø¾ßÌåµÄ´íÎóĞÅÏ¢
+ * æ ¹æ®æŒ‡å®šé…ç½®è·å–æ•°æ®åŒ…æŒ‡å®šæ•°æ®IDçš„æ•°æ®ç±»å‹æ ‡è¯†
+ * @param result è·å–ç»“æœ
+ * @param dtid éœ€è¦è·å–çš„æ•°æ®ID
+ * @param config æŒ‡å®šçš„é…ç½®
+ * @param pkgConfig æ•°æ®åŒ…é…ç½®
+ * @return è·å–æ—¶è‹¥æœ‰é”™è¯¯åˆ™è¿”å›å…·ä½“çš„é”™è¯¯ä¿¡æ¯
  */
 PBCS_U4 PBCS_getDataTypemark(PBCS_U1* result,PBCS_DTID dtid,const struct PBCS_config* config,PBCS_CFGINDEX pkgConfig);
 

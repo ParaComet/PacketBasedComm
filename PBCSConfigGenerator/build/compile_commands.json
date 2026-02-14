@@ -1,0 +1,92 @@
+[
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/CodeGen",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_NO_DEBUG -DQT_XML_LIB -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/CodeGen/gen_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -std=gnu++11 -fPIC -o CMakeFiles/gen.dir/gen_autogen/mocs_compilation.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/CodeGen/gen_autogen/mocs_compilation.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/CodeGen/gen_autogen/mocs_compilation.cpp",
+  "output": "CodeGen/CMakeFiles/gen.dir/gen_autogen/mocs_compilation.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/CodeGen",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_NO_DEBUG -DQT_XML_LIB -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/CodeGen/gen_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -std=gnu++11 -fPIC -o CMakeFiles/gen.dir/main.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/CodeGen/main.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/CodeGen/main.cpp",
+  "output": "CodeGen/CMakeFiles/gen.dir/main.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_NO_DEBUG -DQT_XML_LIB -DconfigSD_EXPORTS -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD/configSD_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -std=gnu++11 -fPIC -fPIC -o CMakeFiles/configSD.dir/configSD_autogen/mocs_compilation.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD/configSD_autogen/mocs_compilation.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD/configSD_autogen/mocs_compilation.cpp",
+  "output": "ConfigSD/CMakeFiles/configSD.dir/configSD_autogen/mocs_compilation.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_NO_DEBUG -DQT_XML_LIB -DconfigSD_EXPORTS -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD/configSD_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -std=gnu++11 -fPIC -fPIC -o CMakeFiles/configSD.dir/Config.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/Config.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/Config.cpp",
+  "output": "ConfigSD/CMakeFiles/configSD.dir/Config.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_NO_DEBUG -DQT_XML_LIB -DconfigSD_EXPORTS -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD/configSD_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -std=gnu++11 -fPIC -fPIC -o CMakeFiles/configSD.dir/Data.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/Data.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/Data.cpp",
+  "output": "ConfigSD/CMakeFiles/configSD.dir/Data.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_NO_DEBUG -DQT_XML_LIB -DconfigSD_EXPORTS -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD/configSD_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -std=gnu++11 -fPIC -fPIC -o CMakeFiles/configSD.dir/FileOperation.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/FileOperation.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/FileOperation.cpp",
+  "output": "ConfigSD/CMakeFiles/configSD.dir/FileOperation.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_NO_DEBUG -DQT_XML_LIB -DconfigSD_EXPORTS -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD/configSD_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -std=gnu++11 -fPIC -fPIC -o CMakeFiles/configSD.dir/Packet.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/Packet.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/Packet.cpp",
+  "output": "ConfigSD/CMakeFiles/configSD.dir/Packet.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_NO_DEBUG -DQT_XML_LIB -DconfigSD_EXPORTS -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/ConfigSD/configSD_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -std=gnu++11 -fPIC -fPIC -o CMakeFiles/configSD.dir/PacketType.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/PacketType.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/ConfigSD/PacketType.cpp",
+  "output": "ConfigSD/CMakeFiles/configSD.dir/PacketType.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor/editor_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/./ui -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -std=gnu++11 -fPIC -o CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor/editor_autogen/mocs_compilation.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor/editor_autogen/mocs_compilation.cpp",
+  "output": "Editor/CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor/editor_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/./ui -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -std=gnu++11 -fPIC -o CMakeFiles/editor.dir/main.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/main.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/main.cpp",
+  "output": "Editor/CMakeFiles/editor.dir/main.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor/editor_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/./ui -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -std=gnu++11 -fPIC -o CMakeFiles/editor.dir/ui/windows/PacketTreeItem.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/ui/windows/PacketTreeItem.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/ui/windows/PacketTreeItem.cpp",
+  "output": "Editor/CMakeFiles/editor.dir/ui/windows/PacketTreeItem.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor/editor_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/./ui -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -std=gnu++11 -fPIC -o CMakeFiles/editor.dir/ui/windows/SimpleDragTreeWidget.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/ui/windows/SimpleDragTreeWidget.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/ui/windows/SimpleDragTreeWidget.cpp",
+  "output": "Editor/CMakeFiles/editor.dir/ui/windows/SimpleDragTreeWidget.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor/editor_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/./ui -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -std=gnu++11 -fPIC -o CMakeFiles/editor.dir/ui/windows/generatewindow.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/ui/windows/generatewindow.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/ui/windows/generatewindow.cpp",
+  "output": "Editor/CMakeFiles/editor.dir/ui/windows/generatewindow.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor/editor_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/./ui -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -std=gnu++11 -fPIC -o CMakeFiles/editor.dir/ui/windows/mainwindow.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/ui/windows/mainwindow.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/ui/windows/mainwindow.cpp",
+  "output": "Editor/CMakeFiles/editor.dir/ui/windows/mainwindow.cpp.o"
+},
+{
+  "directory": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor",
+  "command": "/usr/bin/c++ -DGEN_EXECNAME=\\\"gen\\\" -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/build/Editor/editor_autogen/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/include -I/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/./ui -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtXml -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -std=gnu++11 -fPIC -o CMakeFiles/editor.dir/ui/windows/packeteditpage.cpp.o -c /home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/ui/windows/packeteditpage.cpp",
+  "file": "/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/Editor/ui/windows/packeteditpage.cpp",
+  "output": "Editor/CMakeFiles/editor.dir/ui/windows/packeteditpage.cpp.o"
+}
+]

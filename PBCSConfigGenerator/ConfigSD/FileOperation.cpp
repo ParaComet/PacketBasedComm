@@ -120,14 +120,14 @@ namespace PBCS {
 
             QDomElement childEle = doc.createElement("pkttype");
             childEle.setAttribute("name",type->getName().c_str());
-            childEle.setAttribute("id",type->getID());
+            childEle.setAttribute("id", static_cast<qulonglong>(type->getID()));
 
             type->iterate(
                 [&doc,&childEle](Packet* packet) -> void{
 
                     QDomElement packetEle = doc.createElement("packet");
                     packetEle.setAttribute("name",packet->getName().c_str());
-                    packetEle.setAttribute("id",packet->getID());
+                    packetEle.setAttribute("id", static_cast<qulonglong>(packet->getID()));
 
                     packet->iterate(
                         [&doc,&packetEle](PBCS_DTID,Data* data) -> void {
@@ -223,7 +223,7 @@ namespace PBCS {
         QDomProcessingInstruction instruction = doc.createProcessingInstruction("xml", instStr);
         doc.appendChild(instruction);
 
-        Config::Iterator iterator = config->iterator();
+        Config::Iterator iterator = Config::Iterator(config);
         QDomElement configEle = doc.createElement("config");
         if (config->isNonTMod()) {
             QDomElement nonTEle = doc.createElement("nonTMod");

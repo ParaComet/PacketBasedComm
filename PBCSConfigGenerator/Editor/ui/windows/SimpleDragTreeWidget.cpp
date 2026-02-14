@@ -3,7 +3,7 @@
 //
 
 #include "SimpleDragTreeWidget.h"
-#include "ui_MainWindow.h"
+#include "ui_mainwindow.h"
 #include "mainwindow.h"
 
 namespace PBCS {

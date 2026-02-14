@@ -3,20 +3,20 @@
 
 #include "PBCTConfig.h"
 
-//ÎÞ·ûºÅÒ»Î»ÕûÐÎ
+//æ— ç¬¦å·ä¸€ä½æ•´å½¢
 typedef PBCT_U1 CRC_U1;
-//CRC¶àÏîÊ½ÀàÐÍ,ÐèÎªÎÞ·ûºÅ
+//CRCå¤šé¡¹å¼ç±»åž‹,éœ€ä¸ºæ— ç¬¦å·
 typedef PBCT_CRCPOLY CRC_POLY;
-//Êý¾Ý³¤¶ÈÀàÐÍ
+//æ•°æ®é•¿åº¦ç±»åž‹
 typedef PBCT_DTLEN CRC_DTLEN;
 
 /**
- * ¼ÆËãÌØ¶¨¶àÏîÊ½ÏÂÒ»×éÊý¾Ý¾­¹ýCRCÐ£Ñé³ý·¨ºóµÄÓàÊý
- * ÈôÐèÒª¼æÈÝ¼ÆËãÒÑÓÐÐ£ÑéÂëµÄÊý¾Ý,Ð£ÑéÂëÐèÒªÌáÇ°½øÐÐ×ó¶ÔÆë
- * @param dt Òª¼ÆËãµÄÊý¾Ý
- * @param dtLen Òª¼ÆËãÊý¾ÝµÄ³¤¶È
- * @param crcPoly Ñ¡È¡µÄ¶àÏîÊ½
- * @param crcBits Ñ¡È¡µÄ¶àÏîÊ½µÄÎ»Êý
+ * è®¡ç®—ç‰¹å®šå¤šé¡¹å¼ä¸‹ä¸€ç»„æ•°æ®ç»è¿‡CRCæ ¡éªŒé™¤æ³•åŽçš„ä½™æ•°
+ * è‹¥éœ€è¦å…¼å®¹è®¡ç®—å·²æœ‰æ ¡éªŒç çš„æ•°æ®,æ ¡éªŒç éœ€è¦æå‰è¿›è¡Œå·¦å¯¹é½
+ * @param dt è¦è®¡ç®—çš„æ•°æ®
+ * @param dtLen è¦è®¡ç®—æ•°æ®çš„é•¿åº¦
+ * @param crcPoly é€‰å–çš„å¤šé¡¹å¼
+ * @param crcBits é€‰å–çš„å¤šé¡¹å¼çš„ä½æ•°
  */
 CRC_POLY CRC_calRemainder(
     CRC_U1* dt,

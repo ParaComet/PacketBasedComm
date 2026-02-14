@@ -1,0 +1,4 @@
+gen_autogen/timestamp: \
+	/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/CodeGen/CMakeLists.txt \
+	/home/paracomet/warehouse/PBC/PacketBasedComm/PBCSConfigGenerator/CodeGen/main.cpp \
+	/usr/bin/cmake

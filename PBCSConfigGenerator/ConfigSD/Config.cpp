@@ -165,11 +165,6 @@ namespace PBCS {
         }
     }
 
-    Config::Iterator Config::iterator() {
-        //编译器发狂了,不用管
-        return Iterator(this);
-    }
-
     Config::Iterator::Iterator(Config* configBelongsTo){
         this->configBelongsTo = configBelongsTo;
         parentIts = new std::stack<std::unordered_set<TreeNode*>::iterator>();
@@ -222,6 +217,8 @@ namespace PBCS {
 
     Config::Iterator& Config::Iterator::operator=(Iterator&& other) noexcept {
         if (this != &other) {
+            delete parentIts;
+            delete parentSets;
             // 拷贝资源
             configBelongsTo = other.configBelongsTo;
             parentIts = other.parentIts;

@@ -1,4 +1,4 @@
-//Ò»Ð©¹©ÄÚ²¿Ê¹ÓÃµÄ»Øµ÷º¯Êý
+//ä¸€äº›ä¾›å†…éƒ¨ä½¿ç”¨çš„å›žè°ƒå‡½æ•°
 
 #ifndef __PBCS_CALLBACKS_H
 #define __PBCS_CALLBACKS_H

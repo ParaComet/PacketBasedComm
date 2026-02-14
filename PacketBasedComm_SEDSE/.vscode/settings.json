@@ -6,5 +6,8 @@
         "pbcsdse.h": "c",
         "stdlib.h": "c",
         "stdio.h": "c"
-    }
+    },
+    "clangd.fallbackFlags": [
+        "/home/paracomet/warehouse/PBC/PacketBasedComm/PacketBasedComm_SEDSE/includes"
+    ]
 }
